@@ -222,10 +222,10 @@ body {
 /* Here we're fixing the album width and dividing the rest of the space into 
 sixths, deciding that .tempo should be one half .artist and one-third title */
 .album  { width: calc( 5em + 1em); }
-.artist { width: calc( (100% - (5em + 1em)) * 2/6); }
+.artist { width: calc( (100% - (5em + 1em)) * 1/6); }
 .title  { width: calc( (100% - (5em + 1em)) * 3/6); }
 .tempo  { width: calc( (100% - (5em + 1em)) * 1/6); }
-
+.time-sig  { width: calc( (100% - (5em + 1em)) * 1/6); }
 
 /**************************************
 * Track row styling */
