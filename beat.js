@@ -48,6 +48,8 @@ $( document ).ready(function() {
             var sortArrows = tracklist.querySelectorAll('a.sort');
             for (var j = 0; j < sortArrows.length; j++) {
                 sortArrows[j].addEventListener('click', sortByMe, false);
+
+             $("#artist-form").attr("disabled", "disabled").addClass("disabled");
             }
         }
     });
