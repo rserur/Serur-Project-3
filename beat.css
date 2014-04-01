@@ -233,7 +233,7 @@ sixths, deciding that .tempo should be one half .artist and one-third title */
 .artist { width: calc( (100% - (5em + 1em)) * 2/6); }
 .title  { width: calc( (100% - (5em + 1em)) * 2/6); }
 .tempo  { width: calc( (100% - (5em + 1em)) * 1/6); }
-.time-sig  { width: calc( (100% - (5em + 1em)) * 1/6); }
+.timesig  { width: calc( (100% - (5em + 1em)) * 1/6); }
 
 /**************************************
 * Track row styling */
