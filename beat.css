@@ -11,13 +11,25 @@ html { background-color: #EEE; }
 
 body {
 	position: absolute;
-
 	top: 0;
 	bottom: 0;
 	width: 640px;
 	left: calc( (100% - 640px) / 2 );
+}
 
-	overflow: hidden;
+.extra {
+	position: relative;
+	left: -77px;
+	background-color: FireBrick;
+	width: 82px;
+	top: 128px;
+	border-radius: 5px;
+}
+
+.extra img {
+	width: 32px;
+	height: 32px;
+	margin: 10px;
 }
 
 #container {
@@ -43,7 +55,7 @@ body {
 	width: 640px;
 	height: 240px;
 
-	background-color: #ccc
+	background-color: #ccc;
 }
 
 #info-container > div {
