@@ -1,5 +1,5 @@
-// We're going to try something new in these comments. Different comments are 
-// targeted at different levels of expertise.  In an effort to help you 
+// We're going to try something new in these comments. Different comments are
+// targeted at different levels of expertise.  In an effort to help you
 // ignore things that don't matter, we've labeled these:
 // (1) Need-to-know -- You won't know what's going on without this.
 // (2) Want-to-know -- If you wanted to recreate this, you'd need this.
@@ -32,7 +32,7 @@ window.onload = function() {
     var numTracks = Math.min(maxTracks, tracks.length);
     tracks = tracks.slice(0, numTracks);
 
-    // (1) Iterate over our tracks and 
+    // (1) Iterate over our tracks and
     for (var i = 0; i < numTracks; i++) {
         var div = trackDiv(tracks[i]); // (1) create a div to hold it
         insertTrackDiv(div, tracklist); // (1) put it into our list
@@ -53,7 +53,7 @@ window.onload = function() {
 function trackDiv(track) {
     // (1) This function generates a div from a given track
 
-    analyse(track); // (1) Grab all the Spotify and Echonest data we need and 
+    analyse(track); // (1) Grab all the Spotify and Echonest data we need and
     // put it into the track object
 
     var attrs = rowAttrsFromTrack(track); // (1) generate the data- attributes
@@ -71,7 +71,7 @@ function trackDiv(track) {
 
 
 function rowAttrsFromTrack(track) {
-    // (1) We're using http://ejohn.org/blog/html-5-data-attributes/ to store 
+    // (1) We're using http://ejohn.org/blog/html-5-data-attributes/ to store
     // information about each track in attributes of the div itself.  This
     // function generates those attributes we'll attach later
 
@@ -81,7 +81,7 @@ function rowAttrsFromTrack(track) {
         'data-album': track.album.name,
         'data-artist': artists(track),
         'data-title': track.name,
-        // (3) This is the conditional operator, which can be used as a 
+        // (3) This is the conditional operator, which can be used as a
         // shortcut for writing out a full if/else statement.  You can read
         // more about it at:
         // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
@@ -111,12 +111,12 @@ function placeRow(trackDiv) {
     // (2) Naively, you'd want to control placement and ordering of tracks just
     // by controlling the ordering of the tracklists children; however, since
     // we're dealing with embedded content (the play embeds Spotify offers),
-    // a subtlety is involved.  Whenever an iframe's position in the DOM 
+    // a subtlety is involved.  Whenever an iframe's position in the DOM
     // changes, its content reloads.  This means that when we reordered the
     // rows, we'd be incurring a delay as we wait for the refresh on all the
     // iframes.
     //
-    // Instead, we decouple the ordering in the DOM from the position, and 
+    // Instead, we decouple the ordering in the DOM from the position, and
     // manually calculate the position we use--
 
     if (trackDiv.hasAttribute('data-playlist-position')) {
@@ -168,7 +168,7 @@ function cellsFromTrackAndAttrs(track, attrs) {
 // Playback functionality
 
 function setCurrentTrack(track) {
-    // (1) This function implements the interface functionality to change the 
+    // (1) This function implements the interface functionality to change the
     // content of our info-container and animating the slide-down transition
     // (as well as, via CSS, the highlighted track change) when we select a
     // track by clicking on its .inter.
@@ -192,7 +192,7 @@ function setCurrentTrack(track) {
     document.getElementById('track-name').innerHTML = track.name;
 
     // (1) Fade in all the children of #info-container-- i.e. our track
-    // info and album cover	
+    // info and album cover
     document.getElementById('cover-container').style.opacity = 1;
     document.getElementById('track-data-container').style.opacity = 1;
 
@@ -253,7 +253,7 @@ function sortByMe(e) {
 function sortTableBy(table, sortingFunction) {
     // (1) This function actually sorts the table
 
-    // (3) Since our elements aren't ordered in the DOM, to find their 
+    // (3) Since our elements aren't ordered in the DOM, to find their
     // current order, we need to sort by their playlist-position when we grab
     // them
     var toSort = Array.prototype.slice.call(
@@ -272,13 +272,13 @@ function sortTableBy(table, sortingFunction) {
 
 
 function sortBy(whichClass, direction) {
-    // (2) This function returns a function which Array.sort can use to 
+    // (2) This function returns a function which Array.sort can use to
     // determine whether one thing is 'less' or 'greater' than another--
     //
     // (3) This ability to change the sort order means that we can sort
     // arbitrary collections of things that don't have a natural order--
-    // For numbers and words, we have a notion of order (numeric and 
-    // alphabetical, respectively).  This lets us sort in ascending or 
+    // For numbers and words, we have a notion of order (numeric and
+    // alphabetical, respectively).  This lets us sort in ascending or
     // descending order by writing our own sort function.
     //
     // (3) You can read more about Array.sort at:
@@ -322,7 +322,7 @@ function analyse(track) {
     // it gathers the info from Spotify and EchoNest which we load into the
     // track object in tracks[]
 
-    track.echo = ENSearch(track) || null; // This lets us set a variable to 
+    track.echo = ENSearch(track) || null; // This lets us set a variable to
     // the results of ENSearch, or if
     // there are no results, null
     if (track.echo) { // if we had results
@@ -343,7 +343,7 @@ function analyse(track) {
 
 function entag(tag, attributes, content) {
     // (2) This function lets us intelligently stick some content into a tag
-    // with a given set of attributes without having to go through the node 
+    // with a given set of attributes without having to go through the node
     // creation manually each time.
     //
     // Generating a table, there are a lot of times we want to wrap some
@@ -427,7 +427,7 @@ function scalePoints(points, xRangeMax, yRangeMax) {
     //
     // (3) In it, we use techniques often found in 'functional programming',
     // https://en.wikipedia.org/wiki/Functional_programming wherein
-    // 
+    //
     // (3) Specifically, we rely on map and apply, which you can read about
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
     // and

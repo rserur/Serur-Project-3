@@ -41,7 +41,9 @@
                     </div>
 
                     <div class='cell artist'>
-                        artist
+                        <form name="artist-form">
+                            <input type="text" id="artist-form" placeholder="artist">
+                        </form>
 
                         <!-- Artist ascending/Descending sort arrows -->
                         <div class='sort-container'>
@@ -106,8 +108,8 @@
             </div>
         </div>
     </div>
-
     <script src='./processing.js'></script>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src='./spotify.js'></script>
     <script src='./echonest.js'></script>
     <script src='./beat.js'></script>
