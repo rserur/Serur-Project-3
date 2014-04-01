@@ -15,37 +15,44 @@ var tracks = [];
 
 // (1) We're going to construct our search using Spotify's API, in our case
 // searching for Kanye West and limiting our results to 10 tracks
-var search = 'Rilo Kiley';
+
 var maxTracks = 10;
 
 
 
 //////////////////////////////////////////////////////////////////////////////
 // Loading the page
+$( document ).ready(function() {
 
-// (1) When everything is loaded, then--
-window.onload = function() {
-    // (1) Grab the tracks from Spotify's search results
-    tracks = SPSearch('track', search).tracks;
+    // (1) When everything is loaded, then--
+    $( "#artist-form" ).keydown(function( event ) {
+        if ( event.which == 13 ) {
+            event.preventDefault();
 
-    // (1) Limit our results list
-    var numTracks = Math.min(maxTracks, tracks.length);
-    tracks = tracks.slice(0, numTracks);
+            search = $("#artist-form").val();
 
-    // (1) Iterate over our tracks and
-    for (var i = 0; i < numTracks; i++) {
-        var div = trackDiv(tracks[i]); // (1) create a div to hold it
-        insertTrackDiv(div, tracklist); // (1) put it into our list
-    }
+            // (1) Grab the tracks from Spotify's search results
+            tracks = SPSearch('track', search).tracks;
 
-    // (1) Add click handlers to the sorting controls
-    var sortArrows = tracklist.querySelectorAll('a.sort');
-    for (var j = 0; j < sortArrows.length; j++) {
-        sortArrows[j].addEventListener('click', sortByMe, false);
-    }
-};
+            // (1) Limit our results list
+            var numTracks = Math.min(maxTracks, tracks.length);
+            tracks = tracks.slice(0, numTracks);
 
+            // (1) Iterate over our tracks and
+            for (var i = 0; i < numTracks; i++) {
+                var div = trackDiv(tracks[i]); // (1) create a div to hold it
+                insertTrackDiv(div, tracklist); // (1) put it into our list
+            }
 
+            // (1) Add click handlers to the sorting controls
+            var sortArrows = tracklist.querySelectorAll('a.sort');
+            for (var j = 0; j < sortArrows.length; j++) {
+                sortArrows[j].addEventListener('click', sortByMe, false);
+            }
+        }
+    });
+
+});
 
 //////////////////////////////////////////////////////////////////////////////
 // Generating the tracklist rows
