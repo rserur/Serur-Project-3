@@ -222,6 +222,16 @@ body {
 	width: 100%;
 	margin-top: 15px;
 	margin-bottom: -3px;
+	text-align: center;
+}
+
+.disabled {
+	background-color: #EEE;
+	font-weight: 900;
+	font-family: 'Codystar', cursive;
+	font-size: 1.25em;
+	border: 0;
+	color: FireBrick;
 }
 
 /**************************************
