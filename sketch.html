@@ -31,6 +31,7 @@ function sketch(p) {
         // p.background(0);
         p.fill(238, 238, 238, 15);
 
+
         grid(10);
     }
 
@@ -38,13 +39,23 @@ function sketch(p) {
         var gridW = 25;
         var gridH = 25;
 
+        var acousticness = p.random(1);
+        var danceability = p.random(1);
+        var duration = p.random(1);
+        var energy = p.random(1);
+        var key = p.random(12);
+        var tempo = p.random(40,170);
+
+
         for (var row = 0; row < gridSize; row++) {
+
             for (var col = 0; col < gridSize; col++) {
                 p.noStroke();
                 p.fill(0, 64);
-                p.rect(15 + (col * 30), 15 + (row * 30), gridW/2, gridH/2);
+                p.rect(15 + (col * 30), 15 + (row * 30), gridW * acousticness, gridH * danceability);
                 p.fill(178, 34, 34, 128);
-                p.rect(15 + (col * 30), 15 + (row * 30), gridW, gridH);
+                p.rect(15 + (col * 30), 15 + (row * 30), gridW * duration, gridH * energy);
+
             }
         }
     }
