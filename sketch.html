@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    <script src='processing.js'></script>
+    <style>
+    canvas {
+        outline: none;
+    }
+    /* So that when we click, the canvas isn't outlined */
+    </style>
+</head>
+
+<body>
+    <canvas></canvas>
+</body>
+
+<script>
+var canvas = document.getElementsByTagName('canvas')[0];
+
+function sketch(p) {
+
+    function setup() {
+        p.size(300, 300);
+
+        p.rectMode(p.CENTER);
+
+        //p.noLoop();
+    }
+
+    function draw() {
+        // p.background(0);
+        p.fill(238, 238, 238, 15);
+
+        grid(10);
+    }
+
+    function grid(gridSize) {
+        var gridW = 25;
+        var gridH = 25;
+
+        for (var row = 0; row < gridSize; row++) {
+            for (var col = 0; col < gridSize; col++) {
+                p.noStroke();
+                p.fill(0, 64);
+                p.rect(15 + (col * 30), 15 + (row * 30), gridW/2, gridH/2);
+                p.fill(178, 34, 34, 128);
+                p.rect(15 + (col * 30), 15 + (row * 30), gridW, gridH);
+            }
+        }
+    }
+
+    p.setup = setup;
+    p.draw = draw;
+
+}
+
+var p = new Processing(canvas, sketch); // actually attach and run the sketch
+</script>
+
+</html>
