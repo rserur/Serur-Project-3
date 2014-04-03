@@ -16,6 +16,12 @@
 
 <script>
 var canvas = document.getElementsByTagName('canvas')[0];
+var acousticness;
+var danceability;
+var duration;
+var energy;
+var key;
+var tempo;
 
 
 function sketch(p) {
@@ -27,14 +33,11 @@ function sketch(p) {
 
         p.frameRate(10);
 
-        p.noLoop();
+        //p.noLoop();
     }
 
     function draw() {
-        // p.background(0);
-        p.fill(238, 238, 238, 15);
-
-
+        p.background(178, 34, 34, 128);
         grid(10);
     }
 
@@ -42,25 +45,23 @@ function sketch(p) {
         var gridW = 25;
         var gridH = 25;
 
-        var tempo = tracks[song].echo.audio_summary.tempo/gridSize;
+        
 
 
         for (var row = 0; row < 10; row++) {
 
-
-
-var acousticness = tracks[song].echo.audio_summary.acousticness;
-var danceability = tracks[song].echo.audio_summary.danceability;
-var duration = tracks[song].echo.audio_summary.duration;
-var energy = tracks[song].echo.audio_summary.energy;
-var key = tracks[song].echo.audio_summary.key;
-
+              tempo = (p.random(40,170)/gridSize);
+         acousticness = p.random(1);
+         danceability = p.random(1);
+         duration = p.random(1);
+         energy = p.random(1);
+         key = p.random(12);
 
             for (var col = 0; col < tempo; col++) {
                 p.noStroke();
-                p.fill(0, 64);
+                p.fill(0, 100);
                 p.rect(15 + (col * 30), 15 + (row * 30), gridW * acousticness, gridH * danceability);
-                p.fill(178, 34, 34, 128);
+                p.fill(0, 100);
                 p.rect(15 + (col * 30), 15 + (row * 30), gridW * duration, gridH * energy);
             }
         }
