@@ -19,6 +19,12 @@ var tracks = [];
 var maxTracks = 10;
 
 
+var canvas = document.getElementsByTagName('canvas')[0];
+var acousticness;
+var danceability;
+var duration;
+var energy;
+var key;
 
 //////////////////////////////////////////////////////////////////////////////
 // Loading the page
@@ -485,3 +491,55 @@ function scalePoints(points, xRangeMax, yRangeMax) {
 
     return scaled;
 }
+
+
+
+function sketch(p) {
+
+    function setup() {
+        p.size(300, 300);
+
+        p.rectMode(p.CENTER);
+
+        p.frameRate(10);
+
+        //p.noLoop();
+    }
+
+    function draw() {
+        p.background(178, 34, 34, 128);
+        grid(10);
+    }
+
+    function grid(gridSize) {
+        var gridW = 25;
+        var gridH = 25;
+
+        var tempo = (p.random(40,170)/gridSize);
+
+
+        for (var row = 0; row < 10; row++) {
+
+
+        tempo = tracks[row].echo.audio_summary.acousticness;
+        acousticness = tracks[row].echo.audio_summary.acousticness;
+        danceability = tracks[row].echo.audio_summary.danceability;
+        duration = tracks[row].echo.audio_summary.duration;
+        energy = tracks[row].echo.audio_summary.energy;
+        key = tracks[row].echo.audio_summary.key;
+
+            for (var col = 0; col < tempo; col++) {
+                p.noStroke();
+                p.fill(0, 100);
+                p.rect(15 + (col * 30), 15 + (row * 30), gridW * acousticness, gridH * danceability);
+                p.fill(0, 100);
+                p.rect(15 + (col * 30), 15 + (row * 30), gridW * duration, gridH * energy);
+            }
+        }
+    }
+
+    p.setup = setup;
+    p.draw = draw;
+
+}
+

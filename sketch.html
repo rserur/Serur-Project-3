@@ -27,7 +27,7 @@ function sketch(p) {
 
         p.frameRate(10);
 
-        //p.noLoop();
+        p.noLoop();
     }
 
     function draw() {
@@ -42,17 +42,19 @@ function sketch(p) {
         var gridW = 25;
         var gridH = 25;
 
-        var tempo = (p.random(40,170)/gridSize);
+        var tempo = tracks[song].echo.audio_summary.tempo/gridSize;
 
 
         for (var row = 0; row < 10; row++) {
 
 
-        var acousticness = p.random(1);
-        var danceability = p.random(1);
-        var duration = p.random(1);
-        var energy = p.random(1);
-        var key = p.random(12);
+
+var acousticness = tracks[song].echo.audio_summary.acousticness;
+var danceability = tracks[song].echo.audio_summary.danceability;
+var duration = tracks[song].echo.audio_summary.duration;
+var energy = tracks[song].echo.audio_summary.energy;
+var key = tracks[song].echo.audio_summary.key;
+
 
             for (var col = 0; col < tempo; col++) {
                 p.noStroke();

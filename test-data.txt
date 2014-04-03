@@ -1,9 +1,9 @@
-var tempo = tracks[song].echo.audio_summary.acousticness;
-var acousticness = tracks[song].echo.audio_summary.acousticness;
-var danceability = tracks[song].echo.audio_summary.danceability;
-var duration = tracks[song].echo.audio_summary.duration;
-var energy = tracks[song].echo.audio_summary.energy;
-var key = tracks[song].echo.audio_summary.key;
+var tempo = tracks[row].echo.audio_summary.acousticness;
+var acousticness = tracks[row].echo.audio_summary.acousticness;
+var danceability = tracks[row].echo.audio_summary.danceability;
+var duration = tracks[row].echo.audio_summary.duration;
+var energy = tracks[row].echo.audio_summary.energy;
+var key = tracks[row].echo.audio_summary.key;
 
 
 HAIM
