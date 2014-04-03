@@ -53,5 +53,3 @@ function sketch(p) {
     p.draw = draw;
 
 }
-
-var p = new Processing(canvas, sketch); // actually attach and run the sketch

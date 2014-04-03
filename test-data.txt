@@ -1,3 +1,11 @@
+var tempo = tracks[song].echo.audio_summary.acousticness;
+var acousticness = tracks[song].echo.audio_summary.acousticness;
+var danceability = tracks[song].echo.audio_summary.danceability;
+var duration = tracks[song].echo.audio_summary.duration;
+var energy = tracks[song].echo.audio_summary.energy;
+var key = tracks[song].echo.audio_summary.key;
+
+
 HAIM
 
 acousticness: 0.010414

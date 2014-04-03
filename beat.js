@@ -51,6 +51,8 @@ $( document ).ready(function() {
 
              $("#artist-form").attr("disabled", "disabled").addClass("disabled");
             }
+
+            var p = new Processing(canvas, sketch); // actually attach and run the sketch
         }
     });
 
