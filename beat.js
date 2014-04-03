@@ -25,6 +25,7 @@ var danceability;
 var duration;
 var energy;
 var key;
+var tempo;
 
 //////////////////////////////////////////////////////////////////////////////
 // Loading the page
@@ -515,18 +516,17 @@ function sketch(p) {
         var gridW = 25;
         var gridH = 25;
 
-        var tempo = (p.random(40,170)/gridSize);
+        
 
 
         for (var row = 0; row < 10; row++) {
 
-
-        tempo = tracks[row].echo.audio_summary.acousticness;
-        acousticness = tracks[row].echo.audio_summary.acousticness;
-        danceability = tracks[row].echo.audio_summary.danceability;
-        duration = tracks[row].echo.audio_summary.duration;
-        energy = tracks[row].echo.audio_summary.energy;
-        key = tracks[row].echo.audio_summary.key;
+            tempo = tracks[row].echo.audio_summary.tempo/gridSize;
+            acousticness = tracks[row].echo.audio_summary.acousticness;
+            danceability = tracks[row].echo.audio_summary.danceability;
+            duration = tracks[row].echo.audio_summary.duration;
+            energy = tracks[row].echo.audio_summary.energy;
+            key = tracks[row].echo.audio_summary.key;
 
             for (var col = 0; col < tempo; col++) {
                 p.noStroke();
