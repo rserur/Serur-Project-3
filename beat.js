@@ -493,6 +493,8 @@ function scalePoints(points, xRangeMax, yRangeMax) {
     return scaled;
 }
 
+//////////////////////////////////////////////////////////////////////////////
+// Processing.js Visualization
 
 
 function sketch(p) {
@@ -521,19 +523,19 @@ function sketch(p) {
 
         for (var row = 0; row < 10; row++) {
 
-            tempo = tracks[row].echo.audio_summary.tempo/gridSize;
+            duration = tracks[row].echo.audio_summary.duration/100;
             acousticness = tracks[row].echo.audio_summary.acousticness;
             danceability = tracks[row].echo.audio_summary.danceability;
-            duration = tracks[row].echo.audio_summary.duration;
+            tempo = tracks[row].echo.audio_summary.tempo;
             energy = tracks[row].echo.audio_summary.energy;
             key = tracks[row].echo.audio_summary.key;
 
-            for (var col = 0; col < tempo; col++) {
+            for (var col = 0; col < duration; col++) {
                 p.noStroke();
                 p.fill(0, 100);
                 p.rect(15 + (col * 30), 15 + (row * 30), gridW * acousticness, gridH * danceability);
                 p.fill(0, 100);
-                p.rect(15 + (col * 30), 15 + (row * 30), gridW * duration, gridH * energy);
+                p.rect(15 + (col * 30), 15 + (row * 30), gridW * tempo, gridH * energy);
             }
         }
     }

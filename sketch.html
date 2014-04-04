@@ -33,7 +33,7 @@ function sketch(p) {
 
         p.frameRate(10);
 
-        //p.noLoop();
+        p.noLoop();
     }
 
     function draw() {
@@ -50,19 +50,19 @@ function sketch(p) {
 
         for (var row = 0; row < 10; row++) {
 
-              tempo = (p.random(40,170)/gridSize);
+         tempo = (p.random(40,170)/gridSize);
          acousticness = p.random(1);
          danceability = p.random(1);
          duration = p.random(1);
          energy = p.random(1);
          key = p.random(12);
 
-            for (var col = 0; col < tempo; col++) {
+            for (var col = 0; col < duration; col++) {
                 p.noStroke();
                 p.fill(0, 100);
                 p.rect(15 + (col * 30), 15 + (row * 30), gridW * acousticness, gridH * danceability);
                 p.fill(0, 100);
-                p.rect(15 + (col * 30), 15 + (row * 30), gridW * duration, gridH * energy);
+                p.rect(15 + (col * 30), 15 + (row * 30), gridW * tempo, gridH * energy);
             }
         }
     }
