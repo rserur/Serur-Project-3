@@ -19,8 +19,9 @@ body {
 
 .extra {
 	position: relative;
-	background-color: FireBrick;
+	background-color: white;
 	border-radius: 5px;
+	border: 1px solid #ccc;
 }
 
 .one{
@@ -40,6 +41,11 @@ body {
 	width: 32px;
 	height: 32px;
 	margin: 10px;
+}
+
+canvas {
+	border-radius: 5px;
+	border: 1px solid #ccc;
 }
 
 #container {

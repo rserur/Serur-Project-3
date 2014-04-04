@@ -506,11 +506,11 @@ function sketch(p) {
 
         p.frameRate(10);
 
-        p.noLoop();
+        //p.noLoop();
     }
 
     function draw() {
-        p.background(178, 34, 34, 128);
+        p.background(204);
         grid(10);
     }
 
@@ -518,24 +518,25 @@ function sketch(p) {
         var gridW = 25;
         var gridH = 25;
 
-        
-
-
         for (var row = 0; row < 10; row++) {
 
-            duration = tracks[row].echo.audio_summary.duration/100;
+            duration = tracks[row].echo.audio_summary.duration/40;
             acousticness = tracks[row].echo.audio_summary.acousticness;
             danceability = tracks[row].echo.audio_summary.danceability;
-            tempo = tracks[row].echo.audio_summary.tempo/gridSize;
+            tempo = tracks[row].echo.audio_summary.tempo/gridSize/100;
             energy = tracks[row].echo.audio_summary.energy;
             key = tracks[row].echo.audio_summary.key;
 
-             for (var col = 0; col < duration; col++) {
+
+            for (var col = 0; col < duration; col++) {
                 p.noStroke();
-                p.fill(0);
+                p.fill(tempo * 100, acousticness * 100, acousticness * 100);
+                //rect(x,y,w,h);... currently, energy is bar thickness, duration is bar length
                 p.rect(15 + (col * 30), 15 + (row * 30), gridW * acousticness, gridH * danceability);
-                p.rect(15 + (col * 30), 15 + (row * 30), gridW * tempo, gridH * energy);
+                p.fill(danceability * 200, 0, energy * 30);
+                p.rect(15 + (col * 30), 15 + (row * 30), gridW * duration, gridH * energy + col);
             }
+
         }
     }
 

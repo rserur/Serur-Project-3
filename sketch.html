@@ -33,11 +33,11 @@ function sketch(p) {
 
         p.frameRate(10);
 
-        p.noLoop();
+        //p.noLoop();
     }
 
     function draw() {
-        p.background(178, 34, 34);
+        p.background(238);
         grid(10);
     }
 
@@ -50,18 +50,20 @@ function sketch(p) {
 
         for (var row = 0; row < 10; row++) {
 
-         tempo = (p.random(40,170)/gridSize);
+         tempo = (p.random(40,170)/gridSize)/100;
          acousticness = p.random(1);
          danceability = p.random(1);
-         duration = p.random(1);
+         duration = p.random(250)/40;
          energy = p.random(1);
          key = p.random(12);
 
             for (var col = 0; col < duration; col++) {
                 p.noStroke();
-                p.fill(0);
+                p.fill(tempo * 100, acousticness * 100, acousticness * 100);
+                //rect(x,y,w,h);... currently, energy is bar thickness, duration is bar length
                 p.rect(15 + (col * 30), 15 + (row * 30), gridW * acousticness, gridH * danceability);
-                p.rect(15 + (col * 30), 15 + (row * 30), gridW * tempo, gridH * energy);
+                p.fill(danceability * 200, 0, energy * 30);
+                p.rect(15 + (col * 30), 15 + (row * 30), gridW * duration, gridH * energy + col*2);
             }
         }
     }
