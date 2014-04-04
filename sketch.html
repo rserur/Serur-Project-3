@@ -37,7 +37,7 @@ function sketch(p) {
     }
 
     function draw() {
-        p.background(178, 34, 34, 128);
+        p.background(178, 34, 34);
         grid(10);
     }
 
@@ -59,9 +59,8 @@ function sketch(p) {
 
             for (var col = 0; col < duration; col++) {
                 p.noStroke();
-                p.fill(0, 100);
+                p.fill(0);
                 p.rect(15 + (col * 30), 15 + (row * 30), gridW * acousticness, gridH * danceability);
-                p.fill(0, 100);
                 p.rect(15 + (col * 30), 15 + (row * 30), gridW * tempo, gridH * energy);
             }
         }
