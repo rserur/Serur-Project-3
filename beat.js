@@ -520,12 +520,12 @@ function sketch(p) {
 
         for (var row = 0; row < 10; row++) {
 
-            duration = tracks[row].echo.audio_summary.duration/40;
-            acousticness = tracks[row].echo.audio_summary.acousticness;
-            danceability = tracks[row].echo.audio_summary.danceability;
-            tempo = tracks[row].echo.audio_summary.tempo/gridSize/100;
-            energy = tracks[row].echo.audio_summary.energy;
-            key = tracks[row].echo.audio_summary.key;
+            duration = tracks[row].echo ? tracks[row].echo.audio_summary.duration/40 : 0;
+            acousticness = tracks[row].echo ? tracks[row].echo.audio_summary.acousticness : 0;
+            danceability = tracks[row].echo ? tracks[row].echo.audio_summary.danceability : 0;
+            tempo = tracks[row].echo ? tracks[row].echo.audio_summary.tempo/gridSize/100 : 0;
+            energy = tracks[row].echo ? tracks[row].echo.audio_summary.energy : 0;
+            key = tracks[row].echo ? tracks[row].echo.audio_summary.key : 0;
 
 
             for (var col = 0; col < duration; col++) {
