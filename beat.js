@@ -510,7 +510,7 @@ function sketch(p) {
     }
 
     function draw() {
-        p.background(204);
+        p.background(255);
         grid(10);
     }
 
@@ -530,11 +530,14 @@ function sketch(p) {
 
             for (var col = 0; col < duration; col++) {
                 p.noStroke();
-                p.fill(tempo * 100, acousticness * 100, acousticness * 100);
-                //rect(x,y,w,h);... currently, energy is bar thickness, duration is bar length
-                p.rect(15 + (col * 30), 15 + (row * 30), gridW * acousticness, gridH * danceability);
                 p.fill(danceability * 200, 0, energy * 30);
-                p.rect(15 + (col * 30), 15 + (row * 30), gridW * duration, gridH * energy + col);
+                //rect(x,y,w,h);... currently, energy is bar thickness, duration is bar length
+                //Red Bars
+                p.rect(15 + (col * 30), 15 + (row * 30), gridW * duration * 50, gridH * energy + col);
+                p.fill(tempo * 100, acousticness * 100, acousticness * 100);
+                //Teal Bars
+                p.rect(15 + (col * 30), (row * 30), gridW * energy, gridH * danceability);
+
             }
 
         }
